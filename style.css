@@ -1,80 +1,180 @@
+/* ===== BODY ===== */
 body {
-  background-color: #f5f6fa;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  font-family: "Segoe UI", sans-serif;
 }
 
+/* ===== SIDEBAR ===== */
 .sidebar {
   height: 100vh;
-  background: #2c3e50;
-  color: white;
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  color: #e2e8f0;
   padding: 20px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
 }
+
 .sidebar h4 {
   margin-bottom: 30px;
+  font-weight: 600;
+  color: #f1f5f9;
 }
 
 .sidebar a {
   display: block;
-  color: white;
+  color: #cbd5f5;
   text-decoration: none;
-  margin: 10px 0;
+  margin: 12px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-.sidebar a:hover {
-  color: #1abc9c;
+.sidebar a:hover,
+.sidebar a.active {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: #fff;
 }
 
+/* ===== NAVBAR ===== */
 .navbar-custom {
-  background: #ffffff;
+  background: linear-gradient(90deg, #ffffff, #f1f5f9);
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+.navbar-custom a {
+  text-decoration: none;
+  color: #4f46e5;
+  font-weight: 500;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  padding: 24px;
+}
+
+/* ===== HEADINGS ===== */
+h3,
+h4 {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* ===== CARDS ===== */
 .card {
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-.sidebar a.active,
-.sidebar a:hover {
-  color: #1abc9c;
-}
-
-.card {
-  border-radius: 10px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== SEARCH ===== */
 .search-box {
   max-width: 300px;
+  border-radius: 8px;
 }
 
-.mentor-controls {
-  margin-bottom: 15px;
+/* ===== INPUT + SELECT ===== */
+input,
+select {
+  border-radius: 10px !important;
 }
 
-.mentor-controls .form-control,
-.mentor-controls .form-select {
-  height: 40px;
-  font-size: 14px;
+input:focus,
+select:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
 }
 
-.mentor-controls .btn {
-  height: 40px;
-  font-size: 14px;
+/* ===== BUTTONS ===== */
+.btn-primary,
+.btn-success {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 10px;
 }
 
-.mentor-table th,
-.mentor-table td {
-  text-align: left;
-  vertical-align: middle;
+.btn-primary:hover,
+.btn-success:hover {
+  transform: translateY(-2px);
 }
 
-.mentor-actions button {
-  margin-right: 5px;
+/* ===== TABLE ===== */
+.table {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: white;
+}
+
+.table tbody tr:hover {
+  background: #f1f5ff;
+  transition: 0.2s;
+}
+
+/* ===== STATUS ===== */
+.text-success {
+  color: #16a34a !important;
+  font-weight: 600;
+}
+
+.text-danger {
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+/* ===== TAGS ===== */
+.program-tag {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
 }
 
 .expertise-tag {
-  background-color: #eafaf1;
-  color: #27ae60;
-  padding: 3px 8px;
-  border-radius: 5px;
+  background: linear-gradient(90deg, #34d399, #10b981);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
   font-size: 12px;
+}
+
+/* ===== BADGES ===== */
+.badge {
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.mentor-actions button,
+.batch-actions button {
+  margin-right: 5px;
+  border-radius: 6px;
+}
+
+/* ===== SMALL BUTTON HOVER ===== */
+.btn-outline-primary:hover {
+  background: #6366f1;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ===== SCROLL ===== */
+html {
+  scroll-behavior: smooth;
 }
