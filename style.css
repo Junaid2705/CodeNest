@@ -1,6 +1,7 @@
 /* ===== BODY ===== */
 body {
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  /* background: linear-gradient(180deg, #9ab8e7, #5a7cca); */
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -15,8 +16,8 @@ body {
 
 .sidebar h4 {
   margin-bottom: 30px;
-  font-weight: 600;
-  color: #f1f5f9;
+  font-weight: 700;
+  color: #d3bebe;
 }
 
 .sidebar a {
@@ -37,15 +38,16 @@ body {
 
 /* ===== NAVBAR ===== */
 .navbar-custom {
-  background: linear-gradient(90deg, #ffffff, #f1f5f9);
+  /* background: linear-gradient(180deg, #9ab8e7, #5a7cca); */
+  background: linear-gradient(180deg, #1e293b, #0f172a);
   padding: 15px;
-  border-bottom: 1px solid #e5e7eb;
+  /* border-bottom: 1px solid #e5e7eb; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-custom a {
   text-decoration: none;
-  color: #4f46e5;
+  color: #cccce7;
   font-weight: 500;
 }
 
@@ -58,7 +60,7 @@ body {
 h3,
 h4 {
   font-weight: 700;
-  color: #1e293b;
+  color: #e7cfcf;
 }
 
 /* ===== CARDS ===== */
@@ -69,7 +71,10 @@ h4 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
 }
-
+.card h3
+{
+  color: #0a0a0a;
+}
 .card:hover {
   transform: translateY(-5px);
 }
@@ -178,3 +183,4 @@ select:focus {
 html {
   scroll-behavior: smooth;
 }
+
