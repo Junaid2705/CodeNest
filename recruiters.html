@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeNest – Recruiters</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">C</div>
+        <span class="brand-name">CodeNest</span>
+      </div>
+      <span class="nav-label">Main</span>
+      <a href="index.html"><span class="ni">⊞</span> Dashboard</a>
+      <a href="students.html"><span class="ni">🎓</span> Students</a>
+      <a href="mentors.html"><span class="ni">👨‍🏫</span> Mentors</a>
+      <a href="batches.html"><span class="ni">📚</span> Batches</a>
+      <span class="nav-label">Reports</span>
+      <a href="reports.html"><span class="ni">📊</span> Reports</a>
+      <a href="certificates.html"><span class="ni">🏆</span> Certificates</a>
+      <a href="recruiters.html" class="active"
+        ><span class="ni">💼</span> Recruiters</a
+      >
+      <span class="nav-label">Account</span>
+      <a href="login.html"><span class="ni">🚪</span> Logout</a>
+    </div>
+
+
+    <div class="main-wrapper">
+      <div class="topbar">
+        <span class="topbar-title">Recruiter Portal</span>
+        <div class="topbar-right">
+          <a href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </div>
+
+
+      <div class="page-content">
+        <div class="page-header">
+          <div>
+            <h3>Recruiter Portal</h3>
+            <p>Browse and shortlist top candidates</p>
+          </div>
+        </div>
+
+
+        <!-- Stats -->
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-md-3">
+            <div class="stat-card sc-purple">
+              <div class="stat-icon">👥</div>
+              <div class="stat-label">Available Candidates</div>
+              <div class="stat-value">48</div>
+              <div class="stat-sub">Graduated students</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card sc-green">
+              <div class="stat-icon">✅</div>
+              <div class="stat-label">Shortlisted</div>
+              <div class="stat-value">12</div>
+              <div class="stat-sub">This cycle</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card sc-amber">
+              <div class="stat-icon">📅</div>
+              <div class="stat-label">Interviews Scheduled</div>
+              <div class="stat-value">5</div>
+              <div class="stat-sub">Upcoming</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-card sc-blue">
+              <div class="stat-icon">💼</div>
+              <div class="stat-label">Placed</div>
+              <div class="stat-value">22</div>
+              <div class="stat-sub">All time</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="filter-bar">
+              <div class="search-wrap">
+                <i class="bi bi-search search-ico"></i>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search candidates..."
+                  style="width: 220px"
+                />
+              </div>
+              <select class="form-select" style="width: 150px">
+                <option value="">All Programs</option>
+                <option>Full Stack</option>
+                <option>Data Science</option>
+                <option>AI/ML</option>
+              </select>
+              <select class="form-select" style="width: 130px">
+                <option value="">All Ratings</option>
+                <option>4.5 and above</option>
+                <option>4.0 and above</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Candidate</th>
+                  <th>Program</th>
+                  <th>Batch</th>
+                  <th>Attendance</th>
+                  <th>Rating</th>
+                  <th>Skills</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-p">AR</div>
+                      <div>
+                        <div style="font-weight: 600">Arjun Rao</div>
+                        <div style="font-size: 12px; color: #94a3b8">
+                          arjun.rao@email.com
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag-program">Full Stack</span></td>
+                  <td>Batch A</td>
+                  <td style="font-weight: 600; color: #10b981">92%</td>
+                  <td style="font-weight: 600">⭐ 4.8</td>
+                  <td>
+                    <span class="tag-skill me-1">React</span
+                    ><span class="tag-skill">Node.js</span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#portfolioModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Portfolio</a
+                      >
+                      <a
+                        href="#shortlistModal"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        >Shortlist</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-b">SK</div>
+                      <div>
+                        <div style="font-weight: 600">Sneha Kumar</div>
+                        <div style="font-size: 12px; color: #94a3b8">
+                          sneha.k@email.com
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag-program">Data Science</span></td>
+                  <td>Batch B</td>
+                  <td style="font-weight: 600; color: #10b981">88%</td>
+                  <td style="font-weight: 600">⭐ 4.5</td>
+                  <td>
+                    <span class="tag-skill me-1">Python</span
+                    ><span class="tag-skill">ML</span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#portfolioModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Portfolio</a
+                      >
+                      <a
+                        href="#shortlistModal"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        >Shortlist</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-g">VT</div>
+                      <div>
+                        <div style="font-weight: 600">Vikas Tiwari</div>
+                        <div style="font-size: 12px; color: #94a3b8">
+                          vikas.t@email.com
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag-program">AI/ML</span></td>
+                  <td>Batch C</td>
+                  <td style="font-weight: 600; color: #f59e0b">76%</td>
+                  <td style="font-weight: 600">⭐ 4.0</td>
+                  <td>
+                    <span class="tag-skill me-1">TensorFlow</span
+                    ><span class="tag-skill">Python</span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#portfolioModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Portfolio</a
+                      >
+                      <a
+                        href="#shortlistModal"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        >Shortlist</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-a">RD</div>
+                      <div>
+                        <div style="font-weight: 600">Rohit Desai</div>
+                        <div style="font-size: 12px; color: #94a3b8">
+                          rohit.d@email.com
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag-program">Full Stack</span></td>
+                  <td>Batch A</td>
+                  <td style="font-weight: 600; color: #10b981">85%</td>
+                  <td style="font-weight: 600">⭐ 4.2</td>
+                  <td>
+                    <span class="tag-skill me-1">Vue.js</span
+                    ><span class="tag-skill">Laravel</span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#portfolioModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Portfolio</a
+                      >
+                      <a
+                        href="#shortlistModal"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        >Shortlist</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pag-bar">
+            <span>Showing 1–4 of 48 candidates</span>
+            <nav>
+              <ul class="pagination pagination-sm mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#">‹</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">›</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- PORTFOLIO MODAL -->
+    <div class="modal fade" id="portfolioModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Candidate Portfolio</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <div
+                class="av av-p mx-auto mb-2"
+                style="width: 52px; height: 52px; font-size: 16px"
+              >
+                AR
+              </div>
+              <h6 class="fw-bold mb-0">Arjun Rao</h6>
+              <div style="font-size: 12px; color: #94a3b8">
+                arjun.rao@email.com
+              </div>
+            </div>
+            <table class="table table-borderless" style="font-size: 13px">
+              <tr>
+                <td class="text-muted" style="width: 40%">Program</td>
+                <td><span class="tag-program">Full Stack</span></td>
+              </tr>
+              <tr>
+                <td class="text-muted">Batch</td>
+                <td>Batch A</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Attendance</td>
+                <td style="font-weight: 600; color: #10b981">92%</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Avg. Rating</td>
+                <td style="font-weight: 600">⭐ 4.8 / 5</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Skills</td>
+                <td>
+                  <span class="tag-skill me-1">React</span
+                  ><span class="tag-skill">Node.js</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-muted">Certificates</td>
+                <td><span class="bs bs-active">Issued</span></td>
+              </tr>
+              <tr>
+                <td class="text-muted">Graduated</td>
+                <td>Mar 2026</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <a
+              href="#shortlistModal"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+              >Shortlist Candidate</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SHORTLIST MODAL -->
+    <div class="modal fade" id="shortlistModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <div style="font-size: 34px; margin-bottom: 10px">✅</div>
+            <h6 class="fw-bold mb-1">Shortlist Candidate?</h6>
+            <p style="font-size: 13px; color: #64748b">
+              The candidate will be added to your shortlist for further
+              evaluation.
+            </p>
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 12px"
+                >Add a note (optional)</label
+              >
+              <textarea
+                class="form-control"
+                rows="2"
+                style="font-size: 13px"
+                placeholder="e.g. Strong React skills..."
+              ></textarea>
+            </div>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button class="btn btn-primary" data-bs-dismiss="modal">
+                Confirm Shortlist
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+
+

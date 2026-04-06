@@ -2,78 +2,351 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Feedback</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeNest – Feedback</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* CSS-only rating selector */
+      .rating-radio {
+        display: none;
+      }
+      .rating-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        font-size: 13px;
+        font-weight: 500;
+        color: #475569;
+        cursor: pointer;
+        background: #fff;
+        transition: all 0.15s;
+        user-select: none;
+      }
+      #r-excellent:checked ~ .rating-opts .lbl-excellent {
+        background: #dcfce7;
+        color: #15803d;
+        border-color: #bbf7d0;
+      }
+      #r-good:checked ~ .rating-opts .lbl-good {
+        background: #e0e7ff;
+        color: #4338ca;
+        border-color: #c7d2fe;
+      }
+      #r-average:checked ~ .rating-opts .lbl-average {
+        background: #fef3c7;
+        color: #b45309;
+        border-color: #fde68a;
+      }
+      #r-poor:checked ~ .rating-opts .lbl-poor {
+        background: #fee2e2;
+        color: #b91c1c;
+        border-color: #fecaca;
+      }
+    </style>
   </head>
-
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-2 sidebar">
-          <h4>CodeNest</h4>
-          <a href="mentor-dashboard.html">Dashboard</a>
-          <a href="mystudents.html">My Students</a>
-          <a href="attendance.html">Attendance</a>
-          <a href="#" class="active">Feedback</a>
+    <div class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">C</div>
+        <span class="brand-name">CodeNest</span>
+      </div>
+      <span class="nav-label">Mentor</span>
+      <a href="mentor-dashboard.html"><span class="ni">⊞</span> Dashboard</a>
+      <a href="mystudents.html"><span class="ni">🎓</span> My Students</a>
+      <a href="attendance.html"><span class="ni">✅</span> Attendance</a>
+      <a href="feedback.html" class="active"
+        ><span class="ni">💬</span> Feedback</a
+      >
+      <span class="nav-label">Account</span>
+      <a href="login.html"><span class="ni">🚪</span> Logout</a>
+    </div>
+
+
+    <div class="main-wrapper">
+      <div class="topbar">
+        <span class="topbar-title">Feedback</span>
+        <div class="topbar-right">
+          <span style="font-size: 13px; color: #64748b">Jayesh Sharma</span>
+          <div class="topbar-avatar">JS</div>
+        </div>
+      </div>
+
+
+      <div class="page-content">
+        <div class="page-header">
+          <div>
+            <h3>Give Feedback</h3>
+            <p>Submit performance feedback for your students</p>
+          </div>
         </div>
 
-        <!-- Main -->
-        <div class="col-md-10">
-          <div class="navbar-custom d-flex justify-content-end">
-            <span><a href="#">Profile</a> | <a href="#">Logout</a></span>
+
+        <div class="row g-4">
+          <!-- FORM -->
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card-hdr"><h5>New Feedback</h5></div>
+              <div class="p-4">
+                <form action="#" method="POST">
+                  <div class="mb-3">
+                    <label class="form-label"
+                      >Select Student
+                      <span style="color: #ef4444">*</span></label
+                    >
+                    <select class="form-select" name="student" required>
+                      <option value="">-- Choose a student --</option>
+                      <option>Arjun Rao</option>
+                      <option>Priya Mehta</option>
+                      <option>Sneha Kumar</option>
+                      <option>Rohit Desai</option>
+                      <option>Kavya Iyer</option>
+                    </select>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label"
+                      >Session / Topic
+                      <span style="color: #ef4444">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="topic"
+                      placeholder="e.g. React Hooks, SQL Joins"
+                      required
+                    />
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label d-block"
+                      >Overall Rating
+                      <span style="color: #ef4444">*</span></label
+                    >
+                    <!-- CSS-only rating toggle -->
+                    <input
+                      class="rating-radio"
+                      type="radio"
+                      name="rating"
+                      id="r-excellent"
+                      value="excellent"
+                      required
+                    />
+                    <input
+                      class="rating-radio"
+                      type="radio"
+                      name="rating"
+                      id="r-good"
+                      value="good"
+                    />
+                    <input
+                      class="rating-radio"
+                      type="radio"
+                      name="rating"
+                      id="r-average"
+                      value="average"
+                    />
+                    <input
+                      class="rating-radio"
+                      type="radio"
+                      name="rating"
+                      id="r-poor"
+                      value="poor"
+                    />
+                    <div class="rating-opts d-flex flex-wrap gap-2 mt-1">
+                      <label
+                        class="rating-label lbl-excellent"
+                        for="r-excellent"
+                        >⭐ Excellent</label
+                      >
+                      <label class="rating-label lbl-good" for="r-good"
+                        >👍 Good</label
+                      >
+                      <label class="rating-label lbl-average" for="r-average"
+                        >😐 Average</label
+                      >
+                      <label class="rating-label lbl-poor" for="r-poor"
+                        >⚠️ Needs Work</label
+                      >
+                    </div>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label">Strengths</label>
+                    <textarea
+                      class="form-control"
+                      name="strengths"
+                      rows="2"
+                      placeholder="What the student did well..."
+                    ></textarea>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label class="form-label">Areas to Improve</label>
+                    <textarea
+                      class="form-control"
+                      name="improve"
+                      rows="2"
+                      placeholder="What needs more attention..."
+                    ></textarea>
+                  </div>
+
+
+                  <div class="mb-4">
+                    <label class="form-label"
+                      >Detailed Feedback
+                      <span style="color: #ef4444">*</span></label
+                    >
+                    <textarea
+                      class="form-control"
+                      name="feedback"
+                      rows="4"
+                      placeholder="Write detailed feedback here..."
+                      required
+                      maxlength="500"
+                    ></textarea>
+                    <div
+                      style="
+                        text-align: right;
+                        font-size: 11px;
+                        color: #94a3b8;
+                        margin-top: 4px;
+                      "
+                    >
+                      Max 500 characters
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex gap-2 justify-content-end">
+                    <button type="reset" class="btn btn-outline-secondary">
+                      Clear
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="bi bi-send me-1"></i> Submit Feedback
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
 
-          <div class="main-content">
-            <h3 class="mb-4">Give Feedback</h3>
 
-            <div class="card p-4">
-              <form>
-                <!-- Student Name -->
-                <div class="mb-3">
-                  <label class="form-label">Student</label>
-                  <select class="form-select">
-                    <option>Select Student</option>
-                    <option>A</option>
-                    <option>B</option>
-                  </select>
+          <!-- HISTORY -->
+          <div class="col-md-5">
+            <div class="card">
+              <div class="card-hdr"><h5>Recent Submissions</h5></div>
+              <div>
+                <div
+                  style="padding: 14px 18px; border-bottom: 1px solid #f1f5f9"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-1"
+                  >
+                    <strong style="font-size: 13px">Arjun Rao</strong>
+                    <span
+                      style="
+                        font-size: 11px;
+                        background: #dcfce7;
+                        color: #15803d;
+                        padding: 2px 8px;
+                        border-radius: 20px;
+                        font-weight: 600;
+                      "
+                      >Excellent</span
+                    >
+                  </div>
+                  <div
+                    style="font-size: 12px; color: #64748b; margin-bottom: 4px"
+                  >
+                    React Hooks — 2 days ago
+                  </div>
+                  <p style="font-size: 13px; color: #475569; margin: 0">
+                    Good grasp of useState and useEffect. Should practice more
+                    complex custom hooks.
+                  </p>
                 </div>
-
-                <!-- Feedback -->
-                <div class="mb-3">
-                  <label class="form-label">Feedback</label>
-                  <textarea
-                    class="form-control"
-                    rows="4"
-                    placeholder="Write feedback..."
-                  ></textarea>
+                <div
+                  style="padding: 14px 18px; border-bottom: 1px solid #f1f5f9"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-1"
+                  >
+                    <strong style="font-size: 13px">Priya Mehta</strong>
+                    <span
+                      style="
+                        font-size: 11px;
+                        background: #fef3c7;
+                        color: #b45309;
+                        padding: 2px 8px;
+                        border-radius: 20px;
+                        font-weight: 600;
+                      "
+                      >Average</span
+                    >
+                  </div>
+                  <div
+                    style="font-size: 12px; color: #64748b; margin-bottom: 4px"
+                  >
+                    SQL Joins — 5 days ago
+                  </div>
+                  <p style="font-size: 13px; color: #475569; margin: 0">
+                    Struggles with complex multi-table joins. Recommend extra
+                    practice problems.
+                  </p>
                 </div>
-
-                <!-- Rating -->
-                <div class="mb-3">
-                  <label class="form-label">Rating</label>
-                  <select class="form-select">
-                    <option>Excellent</option>
-                    <option>Good</option>
-                    <option>Average</option>
-                    <option>Poor</option>
-                  </select>
+                <div style="padding: 14px 18px">
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-1"
+                  >
+                    <strong style="font-size: 13px">Sneha Kumar</strong>
+                    <span
+                      style="
+                        font-size: 11px;
+                        background: #e0e7ff;
+                        color: #4338ca;
+                        padding: 2px 8px;
+                        border-radius: 20px;
+                        font-weight: 600;
+                      "
+                      >Good</span
+                    >
+                  </div>
+                  <div
+                    style="font-size: 12px; color: #64748b; margin-bottom: 4px"
+                  >
+                    Node.js Basics — 1 week ago
+                  </div>
+                  <p style="font-size: 13px; color: #475569; margin: 0">
+                    Solid understanding of Express routing. Ready to move to
+                    middleware concepts.
+                  </p>
                 </div>
-
-                <!-- Submit -->
-                <div class="text-end">
-                  <button class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
+
+

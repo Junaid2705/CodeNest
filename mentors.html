@@ -3,107 +3,465 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mentor Listing</title>
-
+    <title>CodeNest – Mentors</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-2 sidebar">
-          <h4>CodeNest</h4>
-          <a href="index.html">Dashboard</a>
-          <a href="students.html">Students</a>
-          <a href="#" class="active">Mentors</a>
-          <a href="batches.html">Batches</a>
-          <a href="#">Reports</a>
-          <a href="#">Certificates</a>
-          <a href="#">Recruiters</a>
+    <div class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">C</div>
+        <span class="brand-name">CodeNest</span>
+      </div>
+      <span class="nav-label">Main</span>
+      <a href="index.html"><span class="ni">⊞</span> Dashboard</a>
+      <a href="students.html"><span class="ni">🎓</span> Students</a>
+      <a href="mentors.html" class="active"
+        ><span class="ni">👨‍🏫</span> Mentors</a
+      >
+      <a href="batches.html"><span class="ni">📚</span> Batches</a>
+      <span class="nav-label">Reports</span>
+      <a href="reports.html"><span class="ni">📊</span> Reports</a>
+      <a href="certificates.html"><span class="ni">🏆</span> Certificates</a>
+      <a href="recruiters.html"><span class="ni">💼</span> Recruiters</a>
+      <span class="nav-label">Account</span>
+      <a href="login.html"><span class="ni">🚪</span> Logout</a>
+    </div>
+
+
+    <div class="main-wrapper">
+      <div class="topbar">
+        <span class="topbar-title">Mentors</span>
+        <div class="topbar-right">
+          <a href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </div>
+
+
+      <div class="page-content">
+        <div class="page-header">
+          <div>
+            <h3>Mentors</h3>
+            <p>Manage mentors and batch assignments</p>
+          </div>
+          <a
+            href="#addMentorModal"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+          >
+            <i class="bi bi-plus-lg me-1"></i> Add Mentor
+          </a>
         </div>
 
-        <!-- Main Content -->
-        <div class="col-md-10">
-          <!-- Navbar -->
-          <div class="navbar-custom d-flex justify-content-end">
-            <span><a href="#">Profile</a> | <a href="#">Logout</a></span>
-          </div>
 
-          <div class="p-4">
-            <!-- Title -->
-            <h3 class="mb-4">Mentors</h3>
-
-            <!-- Controls -->
-            <div
-              class="d-flex justify-content-between align-items-center mb-3 mentor-controls"
-            >
-              <div class="d-flex gap-2">
+        <div class="card">
+          <div class="card-hdr">
+            <div class="filter-bar">
+              <div class="search-wrap">
+                <i class="bi bi-search search-ico"></i>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Search mentors..."
+                  style="width: 220px"
                 />
-
-                <select class="form-select">
-                  <option>Filter: Expertise</option>
-                  <option>Java</option>
-                  <option>React</option>
-                </select>
               </div>
-
-              <button class="btn btn-success">+ Add Mentor</button>
+              <select class="form-select" style="width: 160px">
+                <option value="">All Expertise</option>
+                <option>Full Stack</option>
+                <option>Data Science</option>
+                <option>AI/ML</option>
+                <option>React</option>
+                <option>Java</option>
+              </select>
             </div>
-
-            <!-- Table -->
-            <div class="card p-3">
-              <table class="table table-hover mentor-table">
-                <thead class="table-light">
-                  <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Expertise</th>
-                    <th>Assigned Batch</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>J</td>
-                    <td>j@gmail.com</td>
-                    <td><span class="expertise-tag">Java</span></td>
-                    <td>Batch A</td>
-                    <td class="mentor-actions">
-                      <button class="btn btn-sm btn-outline-primary">
-                        View
-                      </button>
-                      <button class="btn btn-sm btn-success">Edit</button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>R</td>
-                    <td>r@gmail.com</td>
-                    <td><span class="expertise-tag">React</span></td>
-                    <td>Batch B</td>
-                    <td class="mentor-actions">
-                      <button class="btn btn-sm btn-outline-primary">
-                        View
-                      </button>
-                      <button class="btn btn-sm btn-success">Edit</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Mentor</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Expertise</th>
+                  <th>Batch</th>
+                  <th>Students</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="color: #94a3b8; font-size: 12px">01</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-p">JS</div>
+                      <strong>Jayesh Sharma</strong>
+                    </div>
+                  </td>
+                  <td>jayesh.s@email.com</td>
+                  <td>+91 98700 11111</td>
+                  <td><span class="tag-skill">Full Stack</span></td>
+                  <td>Batch A</td>
+                  <td style="font-weight: 600; color: #6366f1">25</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#viewMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >View</a
+                      >
+                      <a
+                        href="#editMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Edit</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color: #94a3b8; font-size: 12px">02</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-b">AR</div>
+                      <strong>Anita Rao</strong>
+                    </div>
+                  </td>
+                  <td>anita.r@email.com</td>
+                  <td>+91 98700 22222</td>
+                  <td><span class="tag-skill">Data Science</span></td>
+                  <td>Batch B</td>
+                  <td style="font-weight: 600; color: #6366f1">22</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#viewMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >View</a
+                      >
+                      <a
+                        href="#editMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Edit</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color: #94a3b8; font-size: 12px">03</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-g">CM</div>
+                      <strong>Chetan More</strong>
+                    </div>
+                  </td>
+                  <td>chetan.m@email.com</td>
+                  <td>+91 98700 33333</td>
+                  <td><span class="tag-skill">AI/ML</span></td>
+                  <td>Batch C</td>
+                  <td style="font-weight: 600; color: #6366f1">18</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#viewMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >View</a
+                      >
+                      <a
+                        href="#editMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Edit</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color: #94a3b8; font-size: 12px">04</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-a">DN</div>
+                      <strong>Divya Nair</strong>
+                    </div>
+                  </td>
+                  <td>divya.n@email.com</td>
+                  <td>+91 98700 44444</td>
+                  <td><span class="tag-skill">React</span></td>
+                  <td>Batch D</td>
+                  <td style="font-weight: 600; color: #6366f1">20</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#viewMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >View</a
+                      >
+                      <a
+                        href="#editMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Edit</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color: #94a3b8; font-size: 12px">05</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="av av-r">RP</div>
+                      <strong>Ravi Patil</strong>
+                    </div>
+                  </td>
+                  <td>ravi.p@email.com</td>
+                  <td>+91 98700 55555</td>
+                  <td><span class="tag-skill">Java</span></td>
+                  <td>Batch E</td>
+                  <td style="font-weight: 600; color: #6366f1">15</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a
+                        href="#viewMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >View</a
+                      >
+                      <a
+                        href="#editMentorModal"
+                        class="btn btn-outline-secondary btn-sm"
+                        data-bs-toggle="modal"
+                        >Edit</a
+                      >
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pag-bar">
+            <span>Showing 1–5 of 25 mentors</span>
+            <nav>
+              <ul class="pagination pagination-sm mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#">‹</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">›</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </div>
+
+
+    <!-- ADD MENTOR MODAL -->
+    <div class="modal fade" id="addMentorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Mentor</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">First Name</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  placeholder="First name"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Last Name</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  placeholder="Last name"
+                />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Email</label
+                ><input
+                  type="email"
+                  class="form-control"
+                  placeholder="mentor@email.com"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Phone</label
+                ><input
+                  type="tel"
+                  class="form-control"
+                  placeholder="+91 XXXXX XXXXX"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Expertise</label>
+                <select class="form-select">
+                  <option value="">Select</option>
+                  <option>Full Stack</option>
+                  <option>Data Science</option>
+                  <option>AI/ML</option>
+                  <option>React</option>
+                  <option>Java</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Assign Batch</label>
+                <select class="form-select">
+                  <option value="">Select batch</option>
+                  <option>Batch A</option>
+                  <option>Batch B</option>
+                  <option>Batch C</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button class="btn btn-primary">Add Mentor</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- EDIT MENTOR MODAL -->
+    <div class="modal fade" id="editMentorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Mentor</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">First Name</label
+                ><input type="text" class="form-control" value="Jayesh" />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Last Name</label
+                ><input type="text" class="form-control" value="Sharma" />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Email</label
+                ><input
+                  type="email"
+                  class="form-control"
+                  value="jayesh.s@email.com"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Phone</label
+                ><input
+                  type="tel"
+                  class="form-control"
+                  value="+91 98700 11111"
+                />
+              </div>
+              <div class="col-6">
+                <label class="form-label">Expertise</label>
+                <select class="form-select">
+                  <option selected>Full Stack</option>
+                  <option>Data Science</option>
+                  <option>AI/ML</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Batch</label>
+                <select class="form-select">
+                  <option selected>Batch A</option>
+                  <option>Batch B</option>
+                  <option>Batch C</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button class="btn btn-primary">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- VIEW MENTOR MODAL -->
+    <div class="modal fade" id="viewMentorModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Mentor Profile</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <div
+                class="av av-p mx-auto mb-2"
+                style="width: 56px; height: 56px; font-size: 18px"
+              >
+                JS
+              </div>
+              <h6 class="mb-0 fw-bold">Jayesh Sharma</h6>
+              <span class="tag-skill">Full Stack</span>
+            </div>
+            <table class="table table-borderless" style="font-size: 13px">
+              <tr>
+                <td class="text-muted" style="width: 40%">Email</td>
+                <td>jayesh.s@email.com</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Phone</td>
+                <td>+91 98700 11111</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Assigned Batch</td>
+                <td>Batch A</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Students</td>
+                <td style="font-weight: 600; color: #6366f1">25</td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
+
+
