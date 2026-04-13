@@ -1,426 +1,206 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeNest – Attendance</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      /* Pure CSS attendance toggle */
-      .att-radio {
-        display: none;
-      }
-      .att-label {
-        display: inline-block;
-        padding: 4px 14px;
-        border-radius: 6px;
-        border: 1px solid #e2e8f0;
-        font-size: 12px;
-        font-weight: 500;
-        color: #475569;
-        cursor: pointer;
-        transition: all 0.15s;
-        background: #fff;
-        user-select: none;
-      }
-      .att-radio-p:checked ~ .att-label-p {
-        background: #dcfce7;
-        color: #15803d;
-        border-color: #bbf7d0;
-      }
-      .att-radio-a:checked ~ .att-label-a {
-        background: #fee2e2;
-        color: #b91c1c;
-        border-color: #fecaca;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">C</div>
-        <span class="brand-name">CodeNest</span>
-      </div>
-      <span class="nav-label">Mentor</span>
-      <a href="mentor-dashboard.html"><span class="ni">⊞</span> Dashboard</a>
-      <a href="mystudents.html"><span class="ni">🎓</span> My Students</a>
-      <a href="attendance.html" class="active"
-        ><span class="ni">✅</span> Attendance</a
-      >
-      <a href="feedback.html"><span class="ni">💬</span> Feedback</a>
-      <span class="nav-label">Account</span>
-      <a href="login.html"><span class="ni">🚪</span> Logout</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeNest – Attendance</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" hidden>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="brand">
+    <div class="brand-icon">C</div>
+    <span class="brand-name">CodeNest</span>
+  </div>
+  <span class="nav-label">Mentor</span>
+  <a href="mentor-dashboard.html"><span class="ni">⊞</span> Dashboard</a>
+  <a href="mystudents.html"><span class="ni">🎓</span> My Students</a>
+  <a href="attendance.html" class="active"><span class="ni">✅</span> Attendance</a>
+  <a href="feedback.html"><span class="ni">💬</span> Feedback</a>
+  <span class="nav-label">Account</span>
+  <a href="login.html"><span class="ni">🚪</span> Logout</a>
+</div>
+
+<label for="menu-toggle" class="sidebar-overlay"></label>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="d-flex align-items-center gap-2">
+      <label for="menu-toggle" class="menu-toggle"><i class="bi bi-list"></i></label>
+      <span class="topbar-title">Mark Attendance</span>
     </div>
+    <div class="topbar-right">
+      <span class="mentor-name">Jayesh Sharma</span>
+      <div class="topbar-avatar">JS</div>
+    </div>
+  </div>
 
-
-    <div class="main-wrapper">
-      <div class="topbar">
-        <span class="topbar-title">Mark Attendance</span>
-        <div class="topbar-right">
-          <span style="font-size: 13px; color: #64748b">Jayesh Sharma</span>
-          <div class="topbar-avatar">JS</div>
-        </div>
+  <div class="page-content">
+    <div class="page-header">
+      <div>
+        <h3>Mark Attendance</h3>
+        <p>Monday, 06 April 2026 — Batch A</p>
       </div>
-
-
-      <div class="page-content">
-        <div class="page-header">
-          <div>
-            <h3>Mark Attendance</h3>
-            <p>Monday, 06 April 2026 — Batch A</p>
-          </div>
-          <div class="d-flex gap-2 align-items-center">
-            <span style="font-size: 13px; color: #64748b">Batch:</span>
-            <select class="form-select" style="width: 130px; font-size: 13px">
-              <option>Batch A</option>
-              <option>Batch B</option>
-            </select>
-          </div>
-        </div>
-
-
-        <!-- Summary Cards -->
-        <div class="row g-3 mb-4">
-          <div class="col-4">
-            <div class="stat-card sc-green">
-              <div class="stat-label">Present</div>
-              <div class="stat-value">—</div>
-              <div class="stat-sub">Mark below</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-card sc-red">
-              <div class="stat-label">Absent</div>
-              <div class="stat-value">—</div>
-              <div class="stat-sub">Mark below</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-card sc-blue">
-              <div class="stat-label">Total</div>
-              <div class="stat-value">6</div>
-              <div class="stat-sub">Students</div>
-            </div>
-          </div>
-        </div>
-
-
-        <form action="#" method="POST">
-          <div class="card">
-            <div class="card-hdr">
-              <h5>Student Attendance — Batch A</h5>
-            </div>
-            <div class="table-wrap">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Student</th>
-                    <th>Batch</th>
-                    <th>Mark Status</th>
-                    <th>Note</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Row 1 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">01</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-p">AR</div>
-                        <strong>Arjun Rao</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att1"
-                          id="p1"
-                          checked
-                        />
-                        <label class="att-label att-label-p" for="p1"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att1"
-                          id="a1"
-                        />
-                        <label class="att-label att-label-a" for="a1"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note1"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-
-
-                  <!-- Row 2 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">02</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-b">PM</div>
-                        <strong>Priya Mehta</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att2"
-                          id="p2"
-                        />
-                        <label class="att-label att-label-p" for="p2"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att2"
-                          id="a2"
-                          checked
-                        />
-                        <label class="att-label att-label-a" for="a2"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note2"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-
-
-                  <!-- Row 3 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">03</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-g">SK</div>
-                        <strong>Sneha Kumar</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att3"
-                          id="p3"
-                          checked
-                        />
-                        <label class="att-label att-label-p" for="p3"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att3"
-                          id="a3"
-                        />
-                        <label class="att-label att-label-a" for="a3"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note3"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-
-
-                  <!-- Row 4 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">04</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-a">RD</div>
-                        <strong>Rohit Desai</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att4"
-                          id="p4"
-                          checked
-                        />
-                        <label class="att-label att-label-p" for="p4"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att4"
-                          id="a4"
-                        />
-                        <label class="att-label att-label-a" for="a4"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note4"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-
-
-                  <!-- Row 5 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">05</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-r">KI</div>
-                        <strong>Kavya Iyer</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att5"
-                          id="p5"
-                          checked
-                        />
-                        <label class="att-label att-label-p" for="p5"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att5"
-                          id="a5"
-                        />
-                        <label class="att-label att-label-a" for="a5"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note5"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-
-
-                  <!-- Row 6 -->
-                  <tr>
-                    <td style="color: #94a3b8; font-size: 12px">06</td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="av av-p">NG</div>
-                        <strong>Nikhil Gupta</strong>
-                      </div>
-                    </td>
-                    <td>Batch A</td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <input
-                          class="att-radio att-radio-p"
-                          type="radio"
-                          name="att6"
-                          id="p6"
-                        />
-                        <label class="att-label att-label-p" for="p6"
-                          >Present</label
-                        >
-                        <input
-                          class="att-radio att-radio-a"
-                          type="radio"
-                          name="att6"
-                          id="a6"
-                          checked
-                        />
-                        <label class="att-label att-label-a" for="a6"
-                          >Absent</label
-                        >
-                      </div>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        name="note6"
-                        placeholder="Optional note"
-                        style="max-width: 180px"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div
-              class="d-flex justify-content-end gap-2 p-3"
-              style="border-top: 1px solid #f1f5f9"
-            >
-              <a href="mentor-dashboard.html" class="btn btn-outline-secondary"
-                >Cancel</a
-              >
-              <button type="submit" class="btn btn-primary">
-                <i class="bi bi-check2 me-1"></i> Save Attendance
-              </button>
-            </div>
-          </div>
-        </form>
+      <div class="d-flex gap-2 align-items-center">
+        <span class="label-small">Batch:</span>
+        <select class="form-select select-small">
+          <option>Batch A</option>
+          <option>Batch B</option>
+        </select>
       </div>
     </div>
 
+    <!-- SUMMARY -->
+    <div class="row g-3 mb-4">
+      <div class="col-4">
+        <div class="stat-card sc-green">
+          <div class="stat-label">Present</div>
+          <div class="stat-value">—</div>
+          <div class="stat-sub">Mark below</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="stat-card sc-red">
+          <div class="stat-label">Absent</div>
+          <div class="stat-value">—</div>
+          <div class="stat-sub">Mark below</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="stat-card sc-blue">
+          <div class="stat-label">Total</div>
+          <div class="stat-value">6</div>
+          <div class="stat-sub">Students</div>
+        </div>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <form method="POST" action="#">
+      <div class="card">
+        <div class="card-hdr">
+          <h5>Student Attendance — Batch A</h5>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Batch</th>
+                <th>Mark Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">01</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-p">AR</div><strong>Arjun Rao</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att1" id="p1" checked>
+                    <label class="att-label att-label-p" for="p1">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att1" id="a1">
+                    <label class="att-label att-label-a" for="a1">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+              <tr>
+                <td class="num">02</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-b">PM</div><strong>Priya Mehta</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att2" id="p2">
+                    <label class="att-label att-label-p" for="p2">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att2" id="a2" checked>
+                    <label class="att-label att-label-a" for="a2">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+              <tr>
+                <td class="num">03</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-g">SK</div><strong>Sneha Kumar</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att3" id="p3" checked>
+                    <label class="att-label att-label-p" for="p3">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att3" id="a3">
+                    <label class="att-label att-label-a" for="a3">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+              <tr>
+                <td class="num">04</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-a">RD</div><strong>Rohit Desai</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att4" id="p4" checked>
+                    <label class="att-label att-label-p" for="p4">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att4" id="a4">
+                    <label class="att-label att-label-a" for="a4">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+              <tr>
+                <td class="num">05</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-r">KI</div><strong>Kavya Iyer</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att5" id="p5" checked>
+                    <label class="att-label att-label-p" for="p5">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att5" id="a5">
+                    <label class="att-label att-label-a" for="a5">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+              <tr>
+                <td class="num">06</td>
+                <td><div class="d-flex align-items-center gap-2"><div class="av av-p">NG</div><strong>Nikhil Gupta</strong></div></td>
+                <td>Batch A</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <input class="att-radio att-radio-p" type="radio" name="att6" id="p6">
+                    <label class="att-label att-label-p" for="p6">Present</label>
+                    <input class="att-radio att-radio-a" type="radio" name="att6" id="a6" checked>
+                    <label class="att-label att-label-a" for="a6">Absent</label>
+                  </div>
+                </td>
+                <td><input type="text" class="form-control form-control-sm note-input" placeholder="Optional note"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-footer">
+          <a href="mentor-dashboard.html" class="btn btn-outline-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check2 me-1"></i> Save Attendance
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
 </html>
-
-
-

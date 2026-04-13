@@ -1,111 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeNest – Login</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="login-wrap">
-      <div class="login-card">
-        <div class="login-logo">C</div>
-        <h2>Welcome to CodeNest</h2>
-        <p class="sub">Sign in to your account</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeNest – Login</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <div class="mb-3">
-          <label class="form-label">Role</label>
-          <select class="form-select">
-            <option>Admin</option>
-            <option>Mentor</option>
-            <option>Recruiter</option>
-          </select>
-        </div>
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-logo">C</div>
+    <h2>Welcome to CodeNest</h2>
+    <p class="sub">Sign in to your account</p>
 
-        <div class="mb-3">
-          <label class="form-label">Email address</label>
-          <div class="input-group">
-            <span
-              class="input-group-text bg-white border-end-0"
-              style="border-color: #e2e8f0; border-radius: 8px 0 0 8px"
-            >
-              <i class="bi bi-envelope text-secondary"></i>
-            </span>
-            <input
-              type="email"
-              class="form-control border-start-0"
-              placeholder="you@example.com"
-              style="
-                border-radius: 0 8px 8px 0 !important;
-                border-color: #e2e8f0;
-              "
-            />
-          </div>
-        </div>
+    <div class="mb-3">
+      <label class="form-label" for="role">Role</label>
+      <select class="form-select" id="role">
+        <option>Admin</option>
+        <option>Mentor</option>
+        <option>Recruiter</option>
+      </select>
+    </div>
 
-        <div class="mb-3">
-          <div class="d-flex justify-content-between">
-            <label class="form-label">Password</label>
-            <a
-              href="#"
-              style="font-size: 12px; color: #6366f1; text-decoration: none"
-              >Forgot password?</a
-            >
-          </div>
-          <div class="input-group">
-            <span
-              class="input-group-text bg-white border-end-0"
-              style="border-color: #e2e8f0; border-radius: 8px 0 0 8px"
-            >
-              <i class="bi bi-lock text-secondary"></i>
-            </span>
-            <input
-              type="password"
-              class="form-control border-start-0"
-              placeholder="••••••••"
-              style="
-                border-radius: 0 8px 8px 0 !important;
-                border-color: #e2e8f0;
-              "
-            />
-          </div>
-        </div>
-
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" id="remember" />
-          <label
-            class="form-check-label"
-            for="remember"
-            style="font-size: 13px; color: #475569"
-            >Remember me for 30 days</label
-          >
-        </div>
-
-        <a
-          href="index.html"
-          class="btn btn-primary w-100 py-2"
-          style="font-size: 14px !important"
-        >
-          Sign in <i class="bi bi-arrow-right ms-1"></i>
-        </a>
-
-        <p class="text-center mt-3" style="font-size: 12px; color: #94a3b8">
-          Don't have an account?
-          <a
-            href="#"
-            style="color: #6366f1; text-decoration: none; font-weight: 600"
-            >Contact your admin</a
-          >
-        </p>
+    <div class="mb-3">
+      <label class="form-label" for="email">Email address</label>
+      <div class="input-group custom-input">
+        <span class="input-group-text"><i class="bi bi-envelope text-secondary"></i></span>
+        <input type="email" class="form-control" id="email" placeholder="you@example.com" autocomplete="email">
       </div>
     </div>
-  </body>
+
+    <div class="mb-3">
+      <div class="d-flex justify-content-between">
+        <label class="form-label" for="password">Password</label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+      <div class="input-group custom-input">
+        <span class="input-group-text"><i class="bi bi-lock text-secondary"></i></span>
+        <input type="password" class="form-control" id="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="remember">
+      <label class="form-check-label remember-text" for="remember">Remember me for 30 days</label>
+    </div>
+
+    <a href="index.html" class="btn btn-primary w-100 py-2 login-btn">
+      Sign in <i class="bi bi-arrow-right ms-1"></i>
+    </a>
+
+    <p class="text-center mt-3 login-footer">
+      Don't have an account? <a href="#" class="contact-link">Contact your admin</a>
+    </p>
+  </div>
+</div>
+
+</body>
 </html>

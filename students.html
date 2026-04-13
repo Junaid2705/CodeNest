@@ -1,612 +1,375 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeNest – Students</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">C</div>
-        <span class="brand-name">CodeNest</span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeNest – Students</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- All styles moved to style.css — no inline <style> block needed -->
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" hidden>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="brand">
+    <div class="brand-icon">C</div>
+    <span class="brand-name">CodeNest</span>
+  </div>
+  <span class="nav-label">Main</span>
+  <a href="index.html"><span class="ni">⊞</span> Dashboard</a>
+  <a href="students.html" class="active"><span class="ni">🎓</span> Students</a>
+  <a href="mentors.html"><span class="ni">👨‍🏫</span> Mentors</a>
+  <a href="batches.html"><span class="ni">📚</span> Batches</a>
+  <span class="nav-label">Reports</span>
+  <a href="reports.html"><span class="ni">📊</span> Reports</a>
+  <a href="certificates.html"><span class="ni">🏆</span> Certificates</a>
+  <a href="recruiters.html"><span class="ni">💼</span> Recruiters</a>
+  <span class="nav-label">Account</span>
+  <a href="login.html"><span class="ni">🚪</span> Logout</a>
+</div>
+
+<label for="menu-toggle" class="sidebar-overlay"></label>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="d-flex align-items-center gap-2">
+      <label for="menu-toggle" class="menu-toggle"><i class="bi bi-list"></i></label>
+      <span class="topbar-title">Students</span>
+    </div>
+    <div class="topbar-right">
+      <a href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+      <div class="topbar-avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="page-header">
+      <div>
+        <h3>Students</h3>
+        <p>Manage all enrolled students</p>
       </div>
-      <span class="nav-label">Main</span>
-      <a href="index.html"><span class="ni">⊞</span> Dashboard</a>
-      <a href="students.html" class="active"
-        ><span class="ni">🎓</span> Students</a
-      >
-      <a href="mentors.html"><span class="ni">👨‍🏫</span> Mentors</a>
-      <a href="batches.html"><span class="ni">📚</span> Batches</a>
-      <span class="nav-label">Reports</span>
-      <a href="reports.html"><span class="ni">📊</span> Reports</a>
-      <a href="certificates.html"><span class="ni">🏆</span> Certificates</a>
-      <a href="recruiters.html"><span class="ni">💼</span> Recruiters</a>
-      <span class="nav-label">Account</span>
-      <a href="login.html"><span class="ni">🚪</span> Logout</a>
+      <a href="#addStudentModal" class="btn btn-primary" data-bs-toggle="modal">
+        <i class="bi bi-plus-lg me-1"></i> Add Student
+      </a>
     </div>
 
-
-    <div class="main-wrapper">
-      <div class="topbar">
-        <span class="topbar-title">Students</span>
-        <div class="topbar-right">
-          <a href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
-          <div class="topbar-avatar">AD</div>
+    <div class="card">
+      <div class="card-hdr">
+        <div class="filter-bar">
+          <div class="search-wrap">
+            <i class="bi bi-search search-ico"></i>
+            <input type="text" class="form-control search-width" placeholder="Search students...">
+          </div>
+          <select class="form-select select-width">
+            <option value="">All Batches</option>
+            <option>Batch A</option>
+            <option>Batch B</option>
+            <option>Batch C</option>
+          </select>
+          <select class="form-select select-width">
+            <option value="">All Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
         </div>
       </div>
 
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Batch</th>
+              <th>Program</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="small-muted">01</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-p">AR</div><strong>Arjun Rao</strong></div></td>
+              <td>arjun.rao@email.com</td>
+              <td>+91 98765 43210</td>
+              <td>Batch A</td>
+              <td><span class="tag-program">Full Stack</span></td>
+              <td><span class="bs bs-active">Active</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-muted">02</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-b">PM</div><strong>Priya Mehta</strong></div></td>
+              <td>priya.m@email.com</td>
+              <td>+91 87654 32109</td>
+              <td>Batch B</td>
+              <td><span class="tag-program">Data Science</span></td>
+              <td><span class="bs bs-active">Active</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-muted">03</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-g">SK</div><strong>Sneha Kumar</strong></div></td>
+              <td>sneha.k@email.com</td>
+              <td>+91 76543 21098</td>
+              <td>Batch C</td>
+              <td><span class="tag-program">AI/ML</span></td>
+              <td><span class="bs bs-inactive">Inactive</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-muted">04</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-a">RD</div><strong>Rohit Desai</strong></div></td>
+              <td>rohit.d@email.com</td>
+              <td>+91 65432 10987</td>
+              <td>Batch A</td>
+              <td><span class="tag-program">Full Stack</span></td>
+              <td><span class="bs bs-active">Active</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-muted">05</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-r">KI</div><strong>Kavya Iyer</strong></div></td>
+              <td>kavya.i@email.com</td>
+              <td>+91 54321 09876</td>
+              <td>Batch B</td>
+              <td><span class="tag-program">Data Science</span></td>
+              <td><span class="bs bs-active">Active</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-muted">06</td>
+              <td><div class="d-flex align-items-center gap-2"><div class="av av-p">NG</div><strong>Nikhil Gupta</strong></div></td>
+              <td>nikhil.g@email.com</td>
+              <td>+91 43210 98765</td>
+              <td>Batch A</td>
+              <td><span class="tag-program">AI/ML</span></td>
+              <td><span class="bs bs-inactive">Inactive</span></td>
+              <td>
+                <div class="d-flex gap-1">
+                  <a href="#viewModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">View</a>
+                  <a href="#editStudentModal" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal">Edit</a>
+                  <a href="#deleteModal" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal">Delete</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <div class="page-content">
-        <div class="page-header">
-          <div>
-            <h3>Students</h3>
-            <p>Manage all enrolled students</p>
-          </div>
-          <a
-            href="#addStudentModal"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-          >
-            <i class="bi bi-plus-lg me-1"></i> Add Student
-          </a>
-        </div>
-
-
-        <div class="card">
-          <div class="card-hdr">
-            <div class="filter-bar">
-              <div class="search-wrap">
-                <i class="bi bi-search search-ico"></i>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search students..."
-                  style="width: 220px"
-                />
-              </div>
-              <select class="form-select" style="width: 140px">
-                <option value="">All Batches</option>
-                <option>Batch A</option>
-                <option>Batch B</option>
-                <option>Batch C</option>
-              </select>
-              <select class="form-select" style="width: 140px">
-                <option value="">All Status</option>
-                <option>Active</option>
-                <option>Inactive</option>
-              </select>
-            </div>
-          </div>
-
-
-          <div class="table-wrap">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Student</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Batch</th>
-                  <th>Program</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">01</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-p">AR</div>
-                      <strong>Arjun Rao</strong>
-                    </div>
-                  </td>
-                  <td>arjun.rao@email.com</td>
-                  <td>+91 98765 43210</td>
-                  <td>Batch A</td>
-                  <td><span class="tag-program">Full Stack</span></td>
-                  <td><span class="bs bs-active">Active</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">02</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-b">PM</div>
-                      <strong>Priya Mehta</strong>
-                    </div>
-                  </td>
-                  <td>priya.m@email.com</td>
-                  <td>+91 87654 32109</td>
-                  <td>Batch B</td>
-                  <td><span class="tag-program">Data Science</span></td>
-                  <td><span class="bs bs-active">Active</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">03</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-g">SK</div>
-                      <strong>Sneha Kumar</strong>
-                    </div>
-                  </td>
-                  <td>sneha.k@email.com</td>
-                  <td>+91 76543 21098</td>
-                  <td>Batch C</td>
-                  <td><span class="tag-program">AI/ML</span></td>
-                  <td><span class="bs bs-inactive">Inactive</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">04</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-a">RD</div>
-                      <strong>Rohit Desai</strong>
-                    </div>
-                  </td>
-                  <td>rohit.d@email.com</td>
-                  <td>+91 65432 10987</td>
-                  <td>Batch A</td>
-                  <td><span class="tag-program">Full Stack</span></td>
-                  <td><span class="bs bs-active">Active</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">05</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-r">KI</div>
-                      <strong>Kavya Iyer</strong>
-                    </div>
-                  </td>
-                  <td>kavya.i@email.com</td>
-                  <td>+91 54321 09876</td>
-                  <td>Batch B</td>
-                  <td><span class="tag-program">Data Science</span></td>
-                  <td><span class="bs bs-active">Active</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #94a3b8; font-size: 12px">06</td>
-                  <td>
-                    <div class="d-flex align-items-center gap-2">
-                      <div class="av av-p">NG</div>
-                      <strong>Nikhil Gupta</strong>
-                    </div>
-                  </td>
-                  <td>nikhil.g@email.com</td>
-                  <td>+91 43210 98765</td>
-                  <td>Batch A</td>
-                  <td><span class="tag-program">AI/ML</span></td>
-                  <td><span class="bs bs-inactive">Inactive</span></td>
-                  <td>
-                    <div class="d-flex gap-1">
-                      <a
-                        href="#viewModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >View</a
-                      >
-                      <a
-                        href="#editStudentModal"
-                        class="btn btn-outline-secondary btn-sm"
-                        data-bs-toggle="modal"
-                        >Edit</a
-                      >
-                      <a
-                        href="#deleteModal"
-                        class="btn btn-outline-danger btn-sm"
-                        data-bs-toggle="modal"
-                        >Delete</a
-                      >
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-          <div class="pag-bar">
-            <span>Showing 1–6 of 120 students</span>
-            <nav>
-              <ul class="pagination pagination-sm mb-0">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#">‹</a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">›</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+      <div class="pag-bar">
+        <span>Showing 1–6 of 120 students</span>
+        <nav>
+          <ul class="pagination pagination-sm mb-0">
+            <li class="page-item disabled"><a class="page-link" href="#">‹</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">›</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
+  </div>
+</div>
 
-
-    <!-- ADD STUDENT MODAL -->
-    <div class="modal fade" id="addStudentModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Add New Student</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+<!-- ADD STUDENT MODAL -->
+<div class="modal fade" id="addStudentModal" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Student</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" placeholder="First name">
           </div>
-          <div class="modal-body">
-            <div class="row g-3">
-              <div class="col-6">
-                <label class="form-label">First Name</label
-                ><input
-                  type="text"
-                  class="form-control"
-                  placeholder="First name"
-                />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Last Name</label
-                ><input
-                  type="text"
-                  class="form-control"
-                  placeholder="Last name"
-                />
-              </div>
-              <div class="col-12">
-                <label class="form-label">Email</label
-                ><input
-                  type="email"
-                  class="form-control"
-                  placeholder="student@email.com"
-                />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Phone</label
-                ><input
-                  type="tel"
-                  class="form-control"
-                  placeholder="+91 XXXXX XXXXX"
-                />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Batch</label>
-                <select class="form-select">
-                  <option value="">Select batch</option>
-                  <option>Batch A</option>
-                  <option>Batch B</option>
-                  <option>Batch C</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <label class="form-label">Program</label>
-                <select class="form-select">
-                  <option value="">Select program</option>
-                  <option>Full Stack</option>
-                  <option>Data Science</option>
-                  <option>AI/ML</option>
-                </select>
-              </div>
-            </div>
+          <div class="col-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" placeholder="Last name">
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button type="submit" class="btn btn-primary">Add Student</button>
+          <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="student@email.com">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Batch</label>
+            <select class="form-select">
+              <option value="">Select batch</option>
+              <option>Batch A</option>
+              <option>Batch B</option>
+              <option>Batch C</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Program</label>
+            <select class="form-select">
+              <option value="">Select program</option>
+              <option>Full Stack</option>
+              <option>Data Science</option>
+              <option>AI/ML</option>
+            </select>
           </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Student</button>
+      </div>
     </div>
+  </div>
+</div>
 
+<!-- VIEW STUDENT MODAL -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Student Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+          <div class="av av-p av-lg mx-auto mb-2">AR</div>
+          <h6 class="mb-0 fw-bold">Arjun Rao</h6>
+          <span class="bs bs-active">Active</span>
+        </div>
+        <table class="table table-borderless modal-table">
+          <tr><td class="text-muted col-40">Email</td><td>arjun.rao@email.com</td></tr>
+          <tr><td class="text-muted">Phone</td><td>+91 98765 43210</td></tr>
+          <tr><td class="text-muted">Batch</td><td>Batch A</td></tr>
+          <tr><td class="text-muted">Program</td><td>Full Stack</td></tr>
+          <tr><td class="text-muted">Status</td><td><span class="bs bs-active">Active</span></td></tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- EDIT STUDENT MODAL -->
-    <div class="modal fade" id="editStudentModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit Student</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+<!-- EDIT STUDENT MODAL -->
+<div class="modal fade" id="editStudentModal" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Student</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" value="Arjun">
           </div>
-          <div class="modal-body">
-            <div class="row g-3">
-              <div class="col-6">
-                <label class="form-label">First Name</label
-                ><input type="text" class="form-control" value="Arjun" />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Last Name</label
-                ><input type="text" class="form-control" value="Rao" />
-              </div>
-              <div class="col-12">
-                <label class="form-label">Email</label
-                ><input
-                  type="email"
-                  class="form-control"
-                  value="arjun.rao@email.com"
-                />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Phone</label
-                ><input
-                  type="tel"
-                  class="form-control"
-                  value="+91 98765 43210"
-                />
-              </div>
-              <div class="col-6">
-                <label class="form-label">Batch</label>
-                <select class="form-select">
-                  <option selected>Batch A</option>
-                  <option>Batch B</option>
-                  <option>Batch C</option>
-                </select>
-              </div>
-              <div class="col-6">
-                <label class="form-label">Program</label>
-                <select class="form-select">
-                  <option selected>Full Stack</option>
-                  <option>Data Science</option>
-                  <option>AI/ML</option>
-                </select>
-              </div>
-              <div class="col-6">
-                <label class="form-label">Status</label>
-                <select class="form-select">
-                  <option>Active</option>
-                  <option>Inactive</option>
-                </select>
-              </div>
-            </div>
+          <div class="col-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" value="Rao">
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button type="submit" class="btn btn-primary">Save Changes</button>
+          <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" value="arjun.rao@email.com">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" value="+91 98765 43210">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Batch</label>
+            <select class="form-select">
+              <option selected>Batch A</option>
+              <option>Batch B</option>
+              <option>Batch C</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Program</label>
+            <select class="form-select">
+              <option selected>Full Stack</option>
+              <option>Data Science</option>
+              <option>AI/ML</option>
+            </select>
           </div>
         </div>
       </div>
-    </div>
-
-
-    <!-- VIEW MODAL -->
-    <div class="modal fade" id="viewModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Student Profile</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="text-center mb-3">
-              <div
-                class="av av-p mx-auto mb-2"
-                style="width: 56px; height: 56px; font-size: 18px"
-              >
-                AR
-              </div>
-              <h6 class="mb-0 fw-bold">Arjun Rao</h6>
-              <span class="bs bs-active">Active</span>
-            </div>
-            <table class="table table-borderless" style="font-size: 13px">
-              <tr>
-                <td class="text-muted" style="width: 40%">Email</td>
-                <td>arjun.rao@email.com</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Phone</td>
-                <td>+91 98765 43210</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Batch</td>
-                <td>Batch A</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Program</td>
-                <td><span class="tag-program">Full Stack</span></td>
-              </tr>
-              <tr>
-                <td class="text-muted">Enrolled</td>
-                <td>01 Jan 2026</td>
-              </tr>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
+  </div>
+</div>
 
-
-    <!-- DELETE MODAL -->
-    <div class="modal fade" id="deleteModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content">
-          <div class="modal-body text-center p-4">
-            <div style="font-size: 34px; margin-bottom: 10px">🗑️</div>
-            <h6 class="fw-bold mb-1">Delete Student?</h6>
-            <p style="font-size: 13px; color: #64748b">
-              This action cannot be undone.
-            </p>
-            <div class="d-flex gap-2 justify-content-center mt-3">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                style="
-                  background: linear-gradient(
-                    90deg,
-                    #ef4444,
-                    #f97316
-                  ) !important;
-                "
-                data-bs-dismiss="modal"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
+<!-- DELETE MODAL -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Student</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="delete-icon">🗑️</div>
+        <h6 class="fw-bold mb-1">Remove Arjun Rao?</h6>
+        <p class="delete-text">This action cannot be undone. The student record will be permanently deleted.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger-gradient text-white">Delete</button>
       </div>
     </div>
+  </div>
+</div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
 </html>
-
-
-
